@@ -1,16 +1,16 @@
 const jsonServer = require('json-server')
 
-const mediaPlayerServer = jsonServer.create()
+const TodoServer = jsonServer.create()
 
 const router = jsonServer.router("db.json")
 
-const middlewares = jsonServer.defaults()
+const middleWares = jsonServer.defaults()
 
-const port = 4000 || process.env.PORT
+const port = 8000 || process.env.PORT
 
-mediaPlayerServer.use(middlewares)
-mediaPlayerServer.use(router)
+TodoServer.use(middleWares)
+TodoServer.use(router)
 
-mediaPlayerServer.listen(port,()=>{
-    console.log(`Media Player server started at port ${port}, and waiting for client request!!!`);
+TodoServer.listen(port,()=>{
+    console.log(`Todo server is running in port : ${port}`);
 })
